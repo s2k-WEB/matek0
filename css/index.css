@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+    font-size: 2vw;
+}
+html,body,.container {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    min-width: 300px;
+    background-color: darkgray;
+    border: solid 0.4ch black;
+    display: flex;
+    flex-flow: column;
+    justify-content:flex-start;
+    align-items: center;
+    align-content: center;
+    width: 94%;
+    height: 94%;
+    border-radius: 2ch;
+    box-shadow: 10px 5px 5px gray;
+}
+#header {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    font: optional;
+}
+#main {
+    flex: 2;
+    width: 98%;
+}
+#footer {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-items: center;
+    width: 98%;
+    margin-bottom: 1ch;
+}
+
+.shape-menu {
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    margin-top: 1ch;
+    width: fit-content;
+}
+.shape-menu > li {
+    box-shadow: inset 0px 0px 16px rgba(0,0,0,0.8);
+    color: white;
+    background-color: rgb(96, 84, 173);
+    border-radius: 0.7ch;
+    padding: 0;
+    margin: 0;
+    padding: 0.5ch;
+    padding-left: 3ch;
+    padding-right: 3ch;
+    margin-right: 1ch;
+    margin-left: 1ch;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    cursor: pointer;
+}
+form {
+    margin: 1ch;
+}
+#page_continer {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+result1, result2 {
+    width: fit-content;
+}

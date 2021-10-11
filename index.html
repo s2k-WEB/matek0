@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="media/favicon.png">
+    <link rel="stylesheet" href="css/index.css">  
+    <title>Síkidomok</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div style="width: 94%;" id="header">
+            <ul class="shape-menu">
+                <li id="page1">Háromzög</li>
+                <li id="page2">Négyzet</li>
+                <li id="page3">Téglalap</li>
+                <li id="page4">Kör</li>
+            </ul>
+            <h3 style="align-self: flex-start;padding-left: 2ch;">Kiindulási adatok:</h3>
+        </div>
+        <div id="main"></div>
+        <div id="footer">
+            <hr style="width: 94%;">
+            <form action="">
+                <label for="result1">Kerület: </label><input type="text" id="result1" name="result1" value=""> cm
+                <br><br>
+                <label for="result2">Terület: </label><input type="text" id="result2" name="result2" value=""> cm
+            </form>
+        </div>
+    </div>
+    <script>
+        $(document).ready( function() {
+            for (let i = 0; i < 8; i++) {
+                $(`#page${i}`).click(function(){$("#main").load(`./pages/page${i}.html`);
+                });
+            }
+        });
+
+        function calc(parm) {
+            let DisplayPerimeter = document.getElementById("result1");
+            let DisplayArea = document.getElementById("result2")
+            let perimeter,area,sizeA,sizeB,sizeC
+            switch (parm) {
+                case 'triangle':
+                    sizeA = document.forms.MyTriangle.sizeA.value;
+                    sizeB = document.forms.MyTriangle.sizeB.value;
+                    sizeC = document.forms.MyTriangle.sizeC.value;
+                    let s = (sizeA + sizeB + sizeC) / 2;
+                    perimeter = parseFloat(sizeA) + parseFloat(sizeB) + parseFloat(sizeC);
+                    area = Math.sqrt(s * ((s - sizeA) * (s - sizeB) * (s - sizeC)));
+                break;
+                case 'square':
+                    sizeA = document.forms.MySquare.sizeA.value;
+                    perimeter = 4 * sizeA ;
+                    area = sizeA*sizeA;
+                break;
+                case 'rectangle':
+                    sizeA = document.forms.MyRectangle.sizeA.value;
+                    sizeB = document.forms.MyRectangle.sizeB.value;
+                    perimeter = (2 * sizeA) + (2 * sizeB);
+                    area = sizeA*sizeB;
+                break;
+                case 'circle':
+                    r = document.forms.MyCircle.radius.value;
+                    perimeter = 2 * Math.PI * r;
+                    area = Math.PI * r * r;
+                break;
+            }    
+            DisplayPerimeter.value = perimeter;
+            DisplayArea.value = area;
+        }
+    </script>
+</body>
+</html>
